@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        
+    body {
+        font-family: "Lato", sans-serif;background-color: rgba(0, 255, 255, 0.389);
+      }
+      header{ background-color: #0cc29a;}
+      footer{background-color: #034f3f;}
+      
+      .sidenav {
+        height: 90%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(8, 241, 218);
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+      }
+      
+      .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #9d1313aa;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .sidenav a:hover {
+        color: #1487f3;
+      }
+      
+      .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+      }
+      
+      @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+      }
+      </style>
+</head>
+<body>
+  
+    <header >
+      <div><center><img src="book logo.jpg" alt="Logo"></center><font size=15 color=tomato><center>LEARNER'S LIBRARY </center></font></h1>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">HOME</a>
+        <a href="Member_List.html">MEMBER LIST</a>
+        <a href="Book Registration_Form.html">BOOK REGISTRATION FORM</a>
+        <a href="feedback.html">FEEDBACK</a>
+      </div>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; MENU</span>  </div>
+    </header>
+    <main>
+      <center><h3 style="color:brown">FEEDBACK</h3>
+      </center>  
+      <form name=form onsubmit="return validateFormOnSubmit(this)" enctype="multipart/form-data" action="javascript:simpleCart.checkout()" method="post">
+        <label for="name">Name:        </label>
+        <input type="text" id="name" name="name" size="20"><br>
+        <label for="feedback">Give your feedback:</label>
+        <input type="text" id="feedback" name="feedback" size="100">
+           <center><input type="submit" value="Submit"></center>
+      </form>
+      
+        
+        
+    </main>
+    <footer>@gk</footer>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      function validateFormOnSubmit(theForm) {
+    var reason = "";
+    reason += validateName(theForm.name);
+    reason += validatePhone(theForm.feedback);
+    
+    if (reason != "") {
+        alert("Some fields need correction:\n" + reason);
+    } else {
+        simpleCart.checkout();
+    }
+    return false;
+}
+      </script>
+</body>
+</html>
